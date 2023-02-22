@@ -1,0 +1,97 @@
+.take-action {
+    background: $ma-main-color;
+
+
+
+    .wave-shape {
+        background: $ma-main-color;
+    }
+
+    .section-title {
+        color: $ma-white-color;
+    }
+
+    .line-solid-color {
+        color: $ma-white-color;
+    }
+
+    .cta-wrapper {
+        .cta-title {
+            text-transform: capitalize;
+
+            @include ma-md-screens {
+                margin-bottom: 1.25rem
+            }
+        }
+
+        .email-capture-form {
+            position: relative;
+
+            .email-lbl {
+                text-transform: capitalize;
+                display: block;
+                font-size: .75rem;
+                font-weight: 600;
+                margin: 0 0 .5rem 0;
+                // text-align: left //Always text-align:left
+                text-align: #{$start-direction} //Always text-align:left
+            }
+
+            .captured-email {
+                display: inline-block;
+                font-size: 1.5rem;
+                width: 100%;
+                margin-bottom: 1.5rem;
+                outline: none;
+                padding: .25rem 1rem;
+                border: 2px solid $ma-white-color;
+                border-radius: 5rem;
+                text-align: center;
+                background: $transparent;
+                color: $ma-white-color;
+
+                &::placeholder {
+                    color: rgba($ma-white-color, .5);
+                }
+
+
+            }
+
+            .email-warning {
+                position: absolute;
+                bottom: -1.25rem;
+                left: 0; //Always this span on the left
+                font-size: .75rem;
+                font-style: italic;
+                color: $ma-grey-color;
+            }
+
+            .subscripe-btn {
+                display: block;
+                margin: 0 auto;
+                border: 1px solid;
+                border-radius: 5rem;
+                padding: .5rem 3rem;
+                font-size: 1rem;
+                font-weight: 600;
+                text-transform: capitalize;
+                cursor: pointer;
+                background: $ma-white-color;
+                color: $ma-main-color;
+                @include ma-transition();
+
+                &:hover {
+                    background: $ma-main-color;
+                    color: $ma-white-color;
+                    border-color: $ma-white-color;
+                    transform: translateY(-2px);
+
+                }
+
+                &:focus {
+                    outline: none !important;
+                }
+            }
+        }
+    }
+}

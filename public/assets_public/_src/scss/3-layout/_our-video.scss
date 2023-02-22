@@ -1,0 +1,39 @@
+.our-video {
+
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+
+    .overlay-image-bg {
+        background: url('../assets/Images/sections-bg-images/video-bg.jpg');
+        background-size: cover;
+        opacity: .5;
+
+    }
+
+    .section-heading {
+        margin-bottom: 2rem;
+
+        .section-title {
+            color: $ma-white-color !important;
+
+        }
+
+        .section-subtitle {
+            color: $ma-white-color;
+        }
+
+        .line {
+            background: $ma-white-color;
+        }
+    }
+
+    .play-wraper {
+        text-align: center;
+    }
+
+
+
+
+}

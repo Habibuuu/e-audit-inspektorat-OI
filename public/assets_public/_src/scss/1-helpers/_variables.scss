@@ -1,0 +1,69 @@
+//
+//font varibales
+//
+$font_1_LTR: "Nunito";
+$font_2_LTR: "Montserrat";
+
+$font_1_RTL: "cairo";
+$font_2_RTL: "cairo";
+
+$fontMain: "";
+$fontSecondary: "";
+//
+
+$ma-main-color: "";
+$ma-accent-color: "";
+
+//colors varibales
+
+$ma-white-color: #fff;
+$ma-black-color: #000;
+
+$ma-grey-color: #f1f1f1;
+$ma-semi-dark-grey-color: #707070;
+$ma-dark-grey-color: #575757;
+$ma-extra-dark-grey-color: #333;
+
+$transparent-black-50: rgba(0, 0, 0, 0.5);
+$transparent-black-25: rgba(0, 0, 0, 0.25);
+$transparent: rgba(0, 0, 0, 0);
+
+$ma-danger-color: #fc0000;
+$ma-success-color: #217234;
+$ma-warning-color: #9b6a01;
+
+//$theme is a varible located on [0-config/theme-x.scss] file
+
+@if $theme== "theme-1-colors" {
+  $ma-main-color: #08bce9;
+  $ma-accent-color: #113f8a;
+}
+
+@if $theme== "theme-2-colors" {
+  $ma-main-color: #00b4a5;
+  $ma-accent-color: #058378;
+}
+
+@if $theme== "theme-3-colors" {
+  $ma-main-color: #f5452e;
+  $ma-accent-color: #d44209;
+}
+
+@if $theme== "theme-4-colors" {
+  $ma-main-color: #9a36fd;
+  $ma-accent-color: #6106bb;
+}
+
+@if $theme== "theme-5-colors" {
+  $ma-accent-color: #790365;
+  $ma-main-color: #ff1bda;
+}
+
+// $ma-color-1:#9e3f00;
+// $ma-color-2:#91009e;
+// $ma-color-3:#00d394;
+
+$overlay-color-opacity-val-25: 0.25;
+$overlay-color-opacity-val-50: 0.5;
+$overlay-color-opacity-val-75: 0.75;
+$overlay-color-opacity-val-100: 1;

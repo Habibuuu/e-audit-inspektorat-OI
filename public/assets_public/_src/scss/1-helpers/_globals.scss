@@ -1,0 +1,491 @@
+/*========== Start Global Rules ==========*/
+
+
+@if $direction==ltr {
+    $fontMain: "Nunito", "sans-serif";
+    $fontSecondary: "Montserrat", "sans-serif";
+
+}
+
+@else if $direction==rtl {
+    $fontMain: "Cairo", "sans-serif";
+    $fontSecondary: "Cairo", "sans-serif";
+}
+
+%title-splitting-char-animation {
+    opacity: 0;
+    animation: fadeInDown .5s forwards cubic-bezier(0.66, 0.22, 0, 0.69);
+    animation-delay: calc(.5s + (.03s * var(--char-index)));
+}
+
+%subtitle-splitting-char-animation {
+    opacity: 0;
+    animation: fadeInUp .5s forwards cubic-bezier(0.66, 0.22, 0, 0.69);
+    animation-delay: calc(1s + (.001s * var(--char-index)));
+}
+
+
+body {
+    font-family: $fontMain;
+    direction: $direction; //the direction defined according to the dirction captured from the config-file used in top of the RTL-main.scss OR RTL-main.scss 
+    text-align: $start-direction; //the direction definedleft OR right according to the dirction captured from the config-file used in top of the RTL-main.scss OR RTL-main.scss
+    position: relative;
+    background: $ma-white-color;
+}
+
+
+section {
+    overflow: hidden;
+    position: relative;
+}
+
+
+.skewed-section {
+    overflow: visible;
+    position: relative;
+    margin: 2rem 0;
+
+    &::before,
+    &::after {
+        content: '';
+        width: 100%;
+        height: 70px;
+        position: absolute;
+        #{$start-direction}: 0;
+        background: $ma-main-color;
+        transform: translateY(-50%) skewY(-1deg);
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        top: 100%;
+    }
+}
+
+
+.mega-section {
+    // this class adds some global rules to the big sections
+    padding: 6rem 0;
+
+    @include ma-sm-screens {
+        padding: 4rem 0;
+    }
+}
+
+.elf-section {
+    // this class adds some global rules to the small sections
+    padding: 4rem 0;
+
+    @include ma-sm-screens {
+        padding: 3rem 0;
+    }
+}
+
+.container {
+    @include ma-xl-screens {
+        max-width: 1170px;
+
+    }
+}
+
+.hollow-text {
+    // inherit the stroke color from the element color
+    -webkit-text-stroke-color: inherit;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-fill-color: $transparent;
+}
+
+.section-heading {
+    // This class defines the global rules that used for heading wrapers of any section
+    margin-bottom: 3rem;
+
+    .section-title {
+        // This placeholder class defines the global rules that used for heading elments it self of any section
+        text-align: center;
+        margin-bottom: 1.25rem;
+        font-size: 3rem;
+        font-family: $fontSecondary;
+        font-weight: 800;
+        text-transform: capitalize;
+        color: $ma-extra-dark-grey-color;
+        line-height: 1.1;
+        letter-spacing: 2px;
+
+        &.splitting {
+            .char {
+                text-transform: initial;
+            }
+
+            .char:first-child {
+                text-transform: uppercase;
+            }
+
+            // Here We are Depending on .animated class that works in conjunction with .wow class to determine the section we want to animate its title text
+            &.animated .char {
+                @extend %title-splitting-char-animation;
+            }
+        }
+
+        @include ma-sm-screens {
+            font-size: 2rem;
+
+        }
+    }
+
+    .section-subtitle {
+        text-align: center;
+        margin: 0 auto;
+        width: 60%;
+        padding: 0 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: capitalize;
+        color: $ma-semi-dark-grey-color;
+
+        &.splitting {
+            .char:first-child {
+                text-transform: uppercase;
+            }
+
+            // Here We are Depending on .animated class that works in conjunction with .wow class to determine the section we want to animate its subtitle text
+
+            &.animated .char {
+                @extend %subtitle-splitting-char-animation;
+            }
+        }
+
+
+
+
+        @include ma-md-screens {
+            width: 80%;
+        }
+
+        @include ma-sm-screens {
+            width: 100%;
+        }
+    }
+}
+
+.adding-shadow {
+
+    @include ma-box-shadow(1, 1, 25, 0, rgba($ma-black-color, .25));
+}
+
+body {
+    &.overlay-is-grey {
+        .overlay-color {
+            @include add-overlay();
+            background: $ma-black-color;
+            opacity: $overlay-color-opacity-val-50;
+        }
+    }
+
+    &.overlay-is-main-color {
+        .overlay-color {
+            @include add-overlay();
+            background: $ma-main-color;
+            opacity: $overlay-color-opacity-val-75;
+        }
+    }
+
+    &.overlay-is-accent-color {
+        .overlay-color {
+            @include add-overlay();
+            background: $ma-accent-color;
+            opacity: $overlay-color-opacity-val-75;
+        }
+    }
+
+    &.overlay-is-linear-gradient {
+        .overlay-color {
+            @include add-overlay();
+            @include linear-gradient-bg();
+            opacity: $overlay-color-opacity-val-75;
+        }
+    }
+
+
+}
+
+
+.parallax {
+
+    background-attachment: fixed !important;
+}
+
+
+.overlay-image-bg {
+    @include add-overlay();
+    opacity: .05;
+    /*add  background-image value wherever you use this class to choose the custom image  */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.overlay-shape-image-bg {
+    @include add-overlay();
+    /*add  background-image value wherever you use this class to choose the custom image  */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .05;
+}
+
+
+.overlay-photo-image-bg {
+    @include add-overlay();
+    /*add  background-image value wherever you use this class to choose the custom image  */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: .05;
+}
+
+%circle-shape {
+    position: absolute;
+    z-index: -1;
+    opacity: .25;
+    border: 15px solid $ma-main-color;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    @include ma-md-screens {
+        width: 125px;
+        height: 125px;
+    }
+}
+
+
+.circle-shape-top-start {
+    @extend %circle-shape;
+    #{$start-direction}: -80px;
+    top: -80px;
+
+    @include ma-md-screens {
+        #{$start-direction}: -40px;
+        top: -40px;
+    }
+
+}
+
+.circle-shape-bottom-end {
+    @extend %circle-shape;
+    #{$end-direction}: -80px;
+    bottom: -80px;
+
+    @include ma-md-screens {
+        #{$end-direction}: -40px;
+        bottom: -40px;
+    }
+
+}
+
+%pattern-shape {
+    position: absolute;
+    background-image: url('../assets/Images/patterns/dots-pattern-black.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: .1;
+    transform: rotate(30deg);
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+
+    @include ma-md-screens {
+        width: 135px;
+        height: 135px;
+    }
+}
+
+.pattern-top-end {
+    @extend %pattern-shape;
+    top: -40px;
+    #{$end-direction}: -40px;
+
+}
+
+.pattern-bottom-start {
+    @extend %pattern-shape;
+    bottom: -40px;
+    #{$start-direction}: -40px;
+}
+
+
+%add-line {
+    //this placeholder makes a littel line used whatever you want to seprate content 
+    display: block;
+    width: 75px;
+    height: 4px;
+    border-radius: 0 6px;
+    margin: 1rem auto;
+}
+
+.line-gradient-color {
+    // this class adds a littel line after the element used it
+    @extend %add-line;
+    background: $ma-main-color;
+}
+
+.line-solid-accent-color {
+    // this class adds a littel line after the element used it
+    @extend %add-line;
+    background: $ma-accent-color;
+}
+
+.line-solid-main-color {
+    // this class adds a littel line after the element used it
+    @extend %add-line;
+    background: $ma-main-color;
+}
+
+.line-side {
+    // this class make the line start from the side
+    margin-#{$start-direction}: 0;
+    margin-#{$end-direction}: auto;
+}
+
+/*  to enable any element that previously had the .disabled-element class.  */
+
+.enabeld-element {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/*  to disable any element and prevent the mouse action on it  */
+
+.disabled-element {
+    opacity: .2;
+    pointer-events: none;
+}
+
+.see-more-area {
+    display: block;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.wave-shape {
+    display: block;
+    width: 100%;
+    fill: $ma-white-color;
+}
+
+.no-borders {
+    border: none;
+    outline: none;
+}
+
+.no-box-shadow {
+    box-shadow: none !important;
+}
+
+.up-heading-span {
+    /*  To Style a Span Overover Any Heading  */
+    display: block;
+    margin-bottom: -7px;
+    font-size: .85rem;
+    font-weight: 600;
+    color: $ma-semi-dark-grey-color;
+}
+
+.section-shape-divider-bottom {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 120px;
+
+        path {
+            fill: $ma-white-color;
+        }
+    }
+
+    &.fill-shade {
+        svg {
+
+            path {
+                fill: darken($ma-white-color, 5%);
+            }
+        }
+    }
+
+}
+
+
+
+* {
+    &::selection {
+        background: $ma-main-color;
+        color: $ma-white-color;
+    }
+}
+
+.text-gradient-color {
+    &::selection {
+        background: $ma-main-color;
+        color: $ma-white-color;
+        -webkit-text-fill-color: $ma-white-color;
+    }
+}
+
+.start-dir-img-frame {
+    background-image: linear-gradient(140deg * $x-axe-direction, $ma-main-color, $ma-white-color);
+
+    margin-#{$end-direction}: 1.5rem;
+    border-radius: .5rem;
+
+    &>img {
+        transform: translate(12px * $x-axe-direction, 12px);
+        border-radius: .5rem;
+    }
+}
+
+.end-dir-img-frame {
+    background-image: linear-gradient(-40deg * $x-axe-direction, $ma-main-color, $ma-white-color);
+
+    margin-#{$start-direction}: 1.5rem;
+    border-radius: .5rem;
+
+    &>img {
+        transform: translate(-12px * $x-axe-direction, -12px);
+        border-radius: .5rem;
+    }
+}
+
+
+
+/*========== End Global Rules ==========*/
+
+
+// adding-padding-spaces($padding-direction ,$start,$end,$step)
+
+// @include adding-padding-spaces("left", 10, 100, 10);
+// @include adding-padding-spaces("right", 10, 100, 10);
+// @include adding-padding-spaces("top", 10, 100, 10);
+// @include adding-padding-spaces("bottom", 10, 100, 10);
+
+// @include adding-padding-spaces("x", 10, 100, 10);
+// @include adding-padding-spaces("y", 10, 100, 10);
+
+// @include adding-margin-spaces("left", 10, 100, 10);
+// @include adding-margin-spaces("right", 10, 100, 10);
+// @include adding-margin-spaces("top", 10, 100, 10);
+// @include adding-margin-spaces("bottom", 10, 100, 10);
+
+// @include adding-margin-spaces("x", 10, 100, 10);
+// @include adding-margin-spaces("y", 10, 100, 10);
+
+// @include adding-auto-margins;

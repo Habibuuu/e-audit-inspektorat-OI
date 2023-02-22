@@ -1,0 +1,131 @@
+/*-------------Start text color classes-------------*/
+.text-gradient-color {
+    // this class colors the text of any element used it with linear-gradient colors
+    @include linear-gradient-text();
+}
+
+
+.text-main-color {
+    color: $ma-main-color !important;
+}
+
+.text-accent-color {
+    color: $ma-accent-color !important;
+}
+
+.text-white-color {
+    color: $ma-white-color !important;
+}
+
+.text-black-color {
+    color: $ma-black-color !important;
+}
+
+.text-grey-color {
+    color: $ma-grey-color !important;
+}
+
+.text-extra-dark-grey-color {
+    color: $ma-extra-dark-grey-color !important;
+}
+
+.text-dark-grey-color {
+    color: $ma-dark-grey-color !important;
+}
+
+.text-transparent-25 {
+    color: $transparent-black-25 !important;
+}
+
+.text-transparent-50 {
+    color: $transparent-black-50 !important;
+}
+
+/*-------------End text color classes-------------*/
+
+/*-------------Start bg color classes-------------*/
+
+.bg-gradient-color {
+    // this class colors the background of any element used it with linear-gradient colors
+    @include linear-gradient-bg();
+    @include ma-transition;
+}
+
+.bg-solid-color {
+    background: $ma-main-color;
+}
+
+.bg-main-color {
+    background: $ma-main-color !important;
+}
+
+.bg-accent-color {
+    background: $ma-accent-color !important;
+}
+
+.bg-white-color {
+    background: $ma-white-color !important;
+}
+
+.bg-black-color {
+    background: $ma-black-color !important;
+}
+
+.bg-grey-color {
+    background: $ma-grey-color !important;
+}
+
+.bg-dark-grey-color {
+    background: $ma-dark-grey-color !important;
+}
+
+.bg-extra-dark-grey-color {
+    background: $ma-extra-dark-grey-color !important;
+}
+
+.bg-transparent-25 {
+
+    background: $transparent-black-25 !important;
+}
+
+.bg-transparent-50 {
+
+    background: $transparent-black-50 !important;
+}
+
+.section-bg-shade {
+    background: darken($ma-white-color, 5%) !important;
+
+    svg {
+        path {
+            fill: darken($ma-white-color, 5%) !important;
+
+        }
+    }
+}
+
+/*-------------End bg color classes-------------*/
+
+// UTILITY CLASSES USED ON BODY TAG TO AFFECT THE GLOBAL ELMENTS ON THE PAGE 
+body {
+    &.section-heading-gradient {
+        .section-title {
+            @include linear-gradient-text();
+        }
+    }
+
+    &.section-heading-main-color {
+        .section-title {
+            background: none;
+            -webkit-text-fill-color: $ma-main-color;
+            color: $ma-main-color;
+        }
+    }
+
+    &.section-heading-black {
+        .section-title {
+            color: $ma-extra-dark-grey-color;
+        }
+    }
+
+}

@@ -1,0 +1,153 @@
+.signing-page {
+  min-height: 100vh;
+
+  .overlay-image-bg {
+    background-image: url('../assets/Images/hero/hero-img-4.jpg');
+    opacity: .5;
+  }
+
+}
+
+
+.sining-area {
+  max-width: 30rem;
+  background-color: $ma-white-color;
+  border-radius: .5rem;
+  padding: 2rem;
+  margin-top: 100px;
+  margin: 100px auto 50px auto;
+
+  @include ma-md-screens {
+    width: 75%;
+  }
+
+  @include ma-sm-screens {
+    width: 100%;
+
+    padding: 2rem 1rem;
+  }
+}
+
+.sining-heading {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: $ma-main-color;
+  margin-bottom: 1.25rem;
+}
+
+.social-signing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  .sc-item {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    color: $ma-white-color;
+    background-color: $ma-main-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-#{$end-direction}: 1.5rem;
+    @include ma-transition();
+    @include ma-box-shadow(0, 3, 20, 0, rgba(0, 0, 0, .15));
+
+    &:last-child {
+      margin-#{$end-direction}: 0;
+
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      color: $ma-main-color;
+      background-color: $ma-white-color;
+
+    }
+
+    .sc-link {
+      line-height: 1;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+}
+
+.divider {
+  position: relative;
+  padding: .5rem 0;
+  margin-bottom: 1.5rem;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    background-color: $ma-main-color;
+
+
+  }
+
+  .or {
+    padding: 0.5rem 2.5rem;
+    text-transform: uppercase;
+    background-color: $ma-white-color;
+    color: $ma-main-color;
+    position: absolute;
+    #{$start-direction}: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    font-weight: 900;
+  }
+
+}
+
+.or-sign-up {
+  padding: .5rem 0;
+  margin-top: 2rem;
+
+  .sign-up-hint {
+    text-transform: capitalize;
+    color: $ma-dark-grey-color;
+    margin: 0;
+    padding: 0;
+
+    .sign-up-link {
+      text-decoration: none;
+      text-transform: inherit;
+      color: $ma-main-color;
+      margin-#{$start-direction}: 5px;
+    }
+  }
+}
+
+
+.agree-terms {
+  .disclaimer {
+    text-transform: capitalize;
+    color: $ma-dark-grey-color;
+    font-size: .85rem;
+
+    .rules-link {
+      text-transform: capitalize;
+      color: $ma-main-color;
+      text-decoration: none;
+      margin: 0 5px;
+      display: inline-block;
+    }
+  }
+
+}

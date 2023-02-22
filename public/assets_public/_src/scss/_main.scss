@@ -1,0 +1,142 @@
+/*===
+/*===================================================
+Project:   Yufa 
+Auther: Mohamed Amin
+Version:    1.0
+Last change:   20 june 2020
+Template Description:    multipurpose HTML5 Template 
+====================================================
+
+/*
+01- global-rules and helper classes
+02- page-header
+03- page-hero section
+04- features-section
+05- stats section
+06- about section
+07- portfolio section
+08- Start portfolio-single Section  
+09- our-video section
+10- our-team section
+11- pricing section
+12- our-clients section
+13- faq section
+14- testimonials section
+15- contact-us section
+16- take-action section
+17- page-footer section
+18- blog
+19- signing page
+20- 404 Page
+21- benefits section
+22- demos page
+
+23- Coloring classes 
+24- Dark Theme Rules
+===*/
+
+/* 01- start global, helper classes , Components Rules*/
+@import "1-helpers/_variables";
+@import "1-helpers/_mixins";
+@import "1-helpers/_globals";
+@import "1-helpers/_custom-animations";
+
+@import "2-components/_buttons";
+@import "2-components/_tabs";
+@import "2-components/_social-icons";
+@import "2-components/_back-to-top";
+@import "2-components/_loading-screen";
+/*ُ 01- End global, helper classes , components Rules */
+
+/*02- Start .page-header Rules    */
+@import "3-layout/_page-header";
+/*02- End .page-header Rules    */
+
+/*  03- Start .page-hero Rules   */
+@import "3-layout/_page-hero";
+/*  03- End .page-hero Rules   */
+
+/*   04- Start .features Section Rules    */
+@import "3-layout/_features";
+/*   04- End .features Section Rules   */
+
+/*  05- Start stats Section    */
+@import "3-layout/_stats";
+/*  05- End stats Section  */
+
+/*  06- Start about Section   */
+@import "3-layout/_about";
+/*  06- End about Section    */
+
+/*   07- Start portfolio Section  */
+@import "3-layout/_portfolio";
+/*   07- End portfolio Section  */
+
+/*   08- Start portfolio-single Section  */
+@import "3-layout/_portfolio-single";
+/*   08-  End portfolio-single Section  */
+
+/*   09- Start our-video Section  */
+@import "3-layout/_our-video";
+/*   09- End our-video Section  */
+
+/*  10- Start our-team Section   */
+@import "3-layout/_our-team";
+/*  10- End our-team Section   */
+
+/*  11- Start pricing Section  */
+@import "3-layout/_pricing";
+/*  11- End pricing Section   */
+
+/*  12- Start our-clients Section   */
+@import "3-layout/_our-clients";
+/*  12- End our-clients Section   */
+
+/*  13- Start faq Section   */
+@import "3-layout/_faq";
+/*  13- End faq Section  */
+
+/*  14- Start testimonials Section   */
+@import "3-layout/_testimonials";
+/*  14- End testimonials Section   */
+
+/*   15- Start contact-us Section  */
+@import "3-layout/_contact-us";
+/*   15- End contact-us Section  */
+
+/*  16- Start take-action Section   */
+@import "3-layout/_take-action";
+/*  16- End take-action Section   */
+
+/*   17- Start page-footer Section  */
+@import "3-layout/_page-footer";
+/*   17- End page-footer Section  */
+
+/* 18- Start blog Page  */
+@import "3-layout/_blog";
+/* 18- End blog Page  */
+
+/*  19- Start signing Page  */
+@import "3-layout/_signing";
+/*  19- End signing Page  */
+
+/*  20- Start 404 Page  */
+@import "3-layout/_404";
+/*  20- End 404 Page  */
+
+/*  21- Start benefits Section  */
+@import "3-layout/_benefits";
+/*  21-  End benefits Section  */
+
+/* 22-  Start demos section Rules  */
+@import "3-layout/_demos";
+
+/* 22- End  demos section Rules    */
+
+/*   23- Start coloring classes  */
+@import "1-helpers/_coloring-classes";
+/*   23- End coloring classes  */
+
+/*   24- Start dark theme rules  */
+@import "1-helpers/_dark-theme";
+/*   24- End dark theme rules  */

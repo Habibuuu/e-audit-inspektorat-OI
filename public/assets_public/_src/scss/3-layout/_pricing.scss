@@ -1,0 +1,187 @@
+%pricing {
+    overflow: hidden;
+
+    .price-plan {
+        &:not(:last-of-type) {
+            @include ma-md-screens {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+
+
+    .plan {
+        overflow: hidden;
+        border-radius: .5rem .5rem 0 0;
+        text-align: center;
+        text-transform: capitalize;
+        @include ma-transition(all, .3s);
+        background: $ma-white-color;
+        @include ma-box-shadow(1px, 1px, 8, 0, rgba($ma-black-color, .1));
+
+
+
+
+    }
+
+    .plan-cost {
+        position: relative;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+        background: $ma-main-color;
+
+        .icon {
+            display: block;
+            font-size: 3rem;
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            color: $ma-white-color;
+        }
+
+        .ribbon {
+            display: inline-block;
+            padding: .25rem 5rem;
+            color: $ma-main-color;
+            background-color: $ma-white-color;
+            top: 2rem;
+            #{$end-direction}: -80px;
+            #{$start-direction}: auto;
+            position: absolute;
+            font-weight: 800;
+            font-size: .85rem;
+            transform: rotate($x-axe-direction * 45deg);
+        }
+
+
+
+    }
+
+
+    .plane-name {
+        color: $ma-white-color;
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin: 0;
+    }
+
+    .plan-price {
+        position: relative;
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: 900;
+        color: $ma-white-color;
+        margin: 0;
+        margin-bottom: .5rem;
+        padding: 0;
+        line-height: 1;
+
+
+
+        .plan-currency {
+            position: absolute;
+            font-size: 1.5rem;
+            font-weight: 500;
+            top: 1rem;
+            #{$start-direction}: -1rem;
+            line-height: 0;
+            vertical-align: baseline;
+            display: inline-block;
+        }
+    }
+
+
+
+
+    .plan-details {
+        padding: 1rem .5rem;
+
+
+        .plan-list {
+            list-style: none;
+            margin: 0;
+            padding: 1rem 0;
+
+            &>.plan-feat {
+                position: relative;
+                padding: .751rem 0;
+                font-size: .9rem;
+                font-weight: 600;
+                color: $ma-semi-dark-grey-color;
+            }
+        }
+    }
+
+    .plan-cta {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+}
+
+
+
+.pricing-1 {
+    @extend %pricing;
+}
+
+
+.pricing-2 {
+    @extend %pricing;
+
+
+
+    .plan-cost {
+        background: $ma-white-color;
+
+        .icon {
+            width: 50%;
+
+            img {
+                width: 240px;
+                height: 70px;
+                max-width: 100%;
+            }
+        }
+
+        .ribbon {
+            color: $ma-white-color;
+            background-color: $ma-main-color;
+        }
+
+    }
+
+
+    .plane-name {
+        color: $ma-main-color;
+    }
+
+    .plan-price {
+        color: $ma-main-color;
+    }
+
+    .plan-details {
+        padding: 0 .5rem;
+        margin-bottom: 2rem;
+
+        .plan-list {
+            padding: 0;
+        }
+    }
+}
+
+
+.pricing-3 {
+    @extend %pricing;
+
+
+    .icon {
+        width: 50%;
+
+        img {
+            width: 240px;
+            height: 70px;
+            max-width: 100%;
+        }
+    }
+
+}
