@@ -206,7 +206,7 @@
 
     @push('script')
         <script
-            src="{{ URL::asset('admin_assets/node_modules/jquery_upload_preview/assets/js/jquery.uploadPreview.min.js') }}">
+            src="{{ URL::asset('assets_admin/node_modules/jquery_upload_preview/assets/js/jquery.uploadPreview.min.js') }}">
         </script>
         <script>
             $.uploadPreview({
@@ -247,7 +247,7 @@
             });
         </script>
         <!-- Select Multiple -->
-        <script src="{{ asset('admin_assets/node_modules/select2/dist/js/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets_admin/node_modules/select2/dist/js/select2.full.min.js') }}"></script>
         <script>
             $(".select2").select2({
                 placeholder: "Pilih Tag Berita..",

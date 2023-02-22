@@ -45,7 +45,6 @@ class Dashboard extends Component
             'videoCount' => Videos::count(),
             'halamanCount' => Page::count(),
             'albumCount' => Gallery::count(),
-            'videoCount' => Videos::count(),
             'berkasCount' => Download::count(),
             'charts' => $charts,
         ])

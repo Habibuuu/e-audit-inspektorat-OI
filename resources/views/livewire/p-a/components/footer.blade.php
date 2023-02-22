@@ -1,17 +1,24 @@
 <div>
 
-    <!-- App Footer start -->
-    <div class="app-footer justify-content-between">
-        <span>
-            <a href="/" target="_blank">
-                <i class="fas fa-globe"></i> Buka Website
-            </a>
-        </span>
-        <span>©
-            <strong>{{ date('Y') == 2022 ? '2022' : '2022-' . date('Y') }}</strong>
-            Dashboard By
-            <a href="#" class="text-navy">DISKOMINFOTIKSAN</a>
-        </span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="/" target="_blank">
+                    <button class="btn btn-outline-info">
+                        <i class="fas fa-globe"></i> Buka Website
+                    </button>
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-sm-right d-none d-sm-block">
+                    <span>©
+                        <strong>{{ date('Y') }}</strong>
+                        Dashboard By
+                        <a href="#" class="text-info">DISKOMINFOTIKSAN</a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- App footer end -->
+
 </div>

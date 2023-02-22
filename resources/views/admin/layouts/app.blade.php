@@ -41,18 +41,7 @@
             <!-- End Page-content -->
 
             <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            2019 © Heyqo.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-right d-none d-sm-block">
-                                Design & Develop by Myra
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @livewire('p-a.components.footer')
             </footer>
 
         </div>
@@ -76,8 +65,7 @@
     <!-- Raphael Js-->
     <script src="{{ asset('plugins/raphael/raphael.min.js') }}"></script>
 
-    <!-- Morris Custom Js-->
-    <script src="{{ asset('assets_admin/pages/dashboard-demo.js') }}"></script>
+    @stack('script')
 
     <!-- App js -->
     <script src="{{ asset('assets_admin/js/theme.js') }}"></script>
