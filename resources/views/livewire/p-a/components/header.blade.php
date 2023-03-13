@@ -21,7 +21,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="{{ route('admin.users-index') }}">
+                            href="{{ route('admin.me') }}">
                             <span>Users</span>
                             <span>
                                 <span class="badge badge-pill badge-info">3</span>

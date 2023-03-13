@@ -13,12 +13,11 @@ use Carbon\Carbon;
                 </h4>
                 <div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
                             <i class="fas fa-filter"></i>
                             Filter
                         </button>
-                        <div class="dropdown-menu dropdown-menu-end" style="width:350px">
+                        <div wire:ignore.self class="dropdown-menu dropdown-menu-lg-right" style="min-width:350px">
                             <form wire:submit.prevent="filter()" class="p-4">
                                 <div class="form-group mb-3">
                                     <label class="form-label">Judul Halaman</label>
@@ -71,7 +70,7 @@ use Carbon\Carbon;
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent='changeStatus({{ $data->id }})'
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ubah Status"
+                                        data-toggle="tooltip" data-placement="bottom" title="Ubah Status"
                                         class="btn btn-{{ $data->status == 'Post' ? 'success' : 'info' }} btn-rounded">
                                         {{ $data->status == 'Post' ? 'Post' : 'Draft' }}
                                     </a>
@@ -82,18 +81,18 @@ use Carbon\Carbon;
                                     @endif
                                 </td>
                                 <td>
-                                    <div class="d-flex gap-2 justify-content-center">
-                                        <a class="btn btn-sm btn-info" target="_blank" href="{{ route('public.page-detail' , $data->slug) }}">
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
+                                        <a class="btn btn-rounded btn-outline-info" target="_blank" href="{{ route('public.page-detail' , $data->slug) }}">
                                             <i class="fa fa-eye"></i>
                                             Lihat
                                         </a>
-                                        <a class="btn btn-sm btn-primary"
+                                        <a class="btn btn-rounded btn-outline-primary"
                                             href="{{ route('admin.page-edit', $data->id) }}">
                                             <i class="fa fa-edit"></i>
                                             Edit
                                         </a>
                                         <a href="#" wire:click="confirmDelete('{{ $data->id }}')"
-                                            class="btn btn-sm btn-danger">
+                                            class="btn btn-rounded btn-outline-danger">
                                             <i class="fa fa-trash"></i>
                                             Delete
                                         </a>
@@ -119,4 +118,12 @@ use Carbon\Carbon;
             </div>
         </div>
     </div>
+
+    @push('script')
+        <script type="text/javascript">
+            $( "select" ).click(function( event ) {
+                event.stopPropagation();
+            });
+        </script>
+    @endpush
 </div>

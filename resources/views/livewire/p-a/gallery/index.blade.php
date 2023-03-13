@@ -51,7 +51,7 @@ use Carbon\Carbon;
                                 </p>
 
                                 <div style="position: absolute; bottom:10px; left;0; width:80%; height:50px;">
-                                    <div class="d-flex gap-2 mt-2">
+                                    <div class="d-flex mt-2" style="gap: 5px;">
                                         <a href="{{ route('admin.gallery-edit', $data->id) }}" class="btn btn-info">
                                             <i class="fas fa-edit"></i>
                                         </a>

@@ -6,7 +6,7 @@
                     <i class="fa fa-list"></i>
                     Daftar Kategori
                 </h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"
                     wire:click.prevent="cancel()">
                     <i class="fas fa-plus"></i>
                     Tambah Kategori
@@ -29,12 +29,12 @@
                                     {{ $data->name }}
                                 </td>
                                 <td>
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <button class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#updateModal" wire:click="edit({{ $data->id }})"><i
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
+                                        <button class="btn btn-outline-primary btn-rounded" data-toggle="modal"
+                                            data-target="#updateModal" wire:click="edit({{ $data->id }})"><i
                                                 class="fa fa-edit"></i> Edit</button>
                                         <button wire:click="confirmDelete('{{ $data->id }}')"
-                                            class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>
+                                            class="btn btn-outline-danger btn-rounded"><i class="fa fa-trash"></i>
                                             Delete</button>
                                     </div>
                                 </td>
@@ -68,7 +68,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Kategori Artikel </h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true close-btn">×</span>
                     </button>
                 </div>
@@ -82,22 +82,10 @@
                                 <small class="text-danger error">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="form-group mb-3 d-none">
-                            <label class="form-label">Parent</label>
-                            <select wire:model.defer="parentId" class="form-control">
-                                <option value="0">ROOT</option>
-                                @foreach ($parents as $parent)
-                                    <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('parentId')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-warning close-btn" data-bs-dismiss="modal"><i
+                    <button type="button" class="btn btn-warning close-btn" data-dismiss="modal"><i
                             class="fa fa-times"></i>
                         Tutup</button>
                     <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal"><i
@@ -114,7 +102,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Kategori Artikel</h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
@@ -129,23 +117,11 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        <div class="form-group mb-3 d-none">
-                            <label class="form-label">Parent</label>
-                            <select wire:model.defer="parentId" class="form-control">
-                                <option value="0">ROOT</option>
-                                @foreach ($parents as $parent)
-                                    <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('parentId')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" wire:click.prevent="cancel()" class="btn btn-warning"
-                        data-bs-dismiss="modal">
+                        data-dismiss="modal">
                         <i class="fa fa-times"></i> Tutup
                     </button>
                     <button type="button" wire:click.prevent="update()" class="btn btn-primary">

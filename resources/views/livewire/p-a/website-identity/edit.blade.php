@@ -4,7 +4,7 @@
         <div class="card-body">
             <h4 class="text-center fw-bold text-dark">Edit Identitas Website</h4>
             <hr>
-            <form wire:submit.prevent="update()">
+            <form>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group mb-3 text-center">

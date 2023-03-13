@@ -4,18 +4,34 @@
             <div class="row g-2">
                 <div class="col-md-4">
                     <div class="position-relative">
-                        <img src="{{ asset('storage/images/users/' . $user->photo) }}" class="img img-thumbnail w-100"
-                            style="max-height:350px; object-fit:contain">
-                        <input type="file" wire:model="photo" class="position-absolute w-100 h-100 start-0 top-0"
-                            title="Ganti Photo Profil" style="opacity: 0; cursor:pointer">
-
-                        <div wire:loading wire:target="photo">
-                            <div
-                                class="position-absolute w-100 h-100 start-0 top-0 p-2 rounded bg-dark d-flex align-items-center justify-content-center gap-2">
-                                <div class="spinner-grow text-light" role="status"></div>
-                                <h3 class="text-light fw-bold m-0">Uploading...</h3>
+                        <label class="form-label" style="display: flex; justify-content: center;">Photo Profile</label>
+                        <div class="position-relative d-flex justify-content-center">
+                            <div wire:loading wire:target="photo" class="position-absolute w-100 h-100 top-0 left-0"
+                                style="width:300px; height:300px;">
+                                <div class="loading d-flex w-100 h-100 justify-content-center align-items-center gap-2 rounded text-light"
+                                    style=" background:rgba(0,0,0,.9)">
+                                    <div class="spinner-border text-light" style="width:20px; height:20px;"
+                                        role="status">
+                                    </div>
+                                    Uploading
+                                </div>
                             </div>
+                            <input type="file" wire:model="photo"
+                                class="position-absolute w-100 h-100 top-0 left-0"
+                                style="cursor: pointer; opacity:0;" title="Ganti Photo Profile" />
+                            @if ($photo)
+                                <img class="img img-thumbnail" style="width:300px; height:300px;object-fit:contain;"
+                                    src="{{ $photo->temporaryUrl() }}">
+                            @else
+                                <img class="img img-thumbnail" style="width:300px; height:300px;object-fit:contain;"
+                                    src="{{ asset('storage/images/users/' . auth()->user()->photo) }}">
+                            @endif
                         </div>
+                        @error('photo')
+                            <span class="invalid-feedback">
+                                {{ $message }}
+                            </span>
+                        @enderror
 
                     </div>
                 </div>

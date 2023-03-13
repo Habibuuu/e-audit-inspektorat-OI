@@ -16,13 +16,13 @@ class Me extends Component
         'user.fullname' => 'required|string',
         'user.username' => 'required|alpha_dash',
         'user.email' => 'required|email',
-        // 'user.role_id' => 'required|numeric',
         'password' => 'nullable|confirmed|alpha_dash'
     ];
 
     public function mount()
     {
         $this->user = auth()->user();
+        // dd($this->user);
     }
 
     public function render()
@@ -47,15 +47,18 @@ class Me extends Component
             'user.fullname' => 'required|string',
             'user.username' => 'required|alpha_dash|unique:users,username,' . $this->user->id,
             'user.email' => 'required|email|unique:users,email,' . $this->user->id,
-            // 'user.role_id' => 'required|numeric',
             'password' => 'nullable|confirmed|alpha_dash'
         ], [], [
             'user.fullname' => 'Nama Lengkap',
             'user.username' => 'Username',
             'user.email' => 'Email',
             'user.role_id' => 'Jenis Pengguna',
+            'password' => 'Kata sandi'
         ]);
         if ($validate) {
+            if($this->password) {
+                $this->user->password = bcrypt($this->password);
+            }
             $this->user->save();
             $this->showToastr('success', 'Berhasil', 'Profil berhasil diperbarui');
         }

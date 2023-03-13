@@ -39,8 +39,11 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Lampiran</label>
-                            <input type="file" class="form-control" wire:model="lampiran" multiple>
+                            <label>Lampiran</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" wire:model="lampiran" multiple>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
                             @error('lampiran')
                                 <span class="invalid-feedback d-block">
                                     {{ $message }}
@@ -106,13 +109,13 @@
         </div>
     </div>
     @push('styles')
-        <!-- include summernote css/js -->
-        <link rel="stylesheet" href="{{ URL::asset('plugins/summernote-angga/css/summernote.css') }}" rel="stylesheet">
+        <!-- Summernote CSS -->
+        <link rel="stylesheet" href="{{ asset('temp/admin/v2/vendor/summernote/summernote-bs4.css') }}" />
     @endpush
 
     @push('script')
         <!-- Summernote -->
-        <script src="{{ URL::asset('plugins/summernote-angga/js/summernote.js') }}"></script>
+        <script src="{{ asset('temp/admin/v2/vendor/summernote/summernote-bs4.js') }}"></script>
         <script src="{{ URL::asset('plugins/typeahead/typeahead.js') }}"></script>
         <script>
             $(document).ready(function() {
@@ -120,11 +123,11 @@
                     placeholder: 'Input your content here.....',
                     height: 300,
                     toolbar: [
-						['font', ['bold', 'underline', 'clear']],
-						['para', ['ul', 'ol']],
-						['insert', ['link', 'picture', 'video']],
-						['view', ['fullscreen', 'codeview', 'help']],
-					],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['para', ['ul', 'ol']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['fullscreen', 'codeview', 'help']],
+                    ],
                     dialogsInBody: true,
                     callbacks: {
                         onChange: function(contents, $editable) {

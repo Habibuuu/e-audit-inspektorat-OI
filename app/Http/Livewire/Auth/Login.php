@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
-    public $username = 'admin', $password = 'password', $remember;
+    public $username = '', $password = '', $remember;
 
     public $captcha, $captchaImg;
 

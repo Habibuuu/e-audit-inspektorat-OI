@@ -164,8 +164,28 @@ class Create extends Component
                 $data->Tags()->sync($tagIds);
             }
 
-            session()->flash('success', 'Artikel berhasil ditambahkan!');
-            return redirect()->route('admin.articles-index');
+            $this->showToastr('success', 'Artikel berhasil ditambahkan!');
+            // return redirect()->route('admin.articles-index');
         }
+    }
+
+    // SWEETALERT
+    public function showAlert($icon, $title, $text)
+    {
+        $this->emit('swal:modal', [
+            'icon'  => $icon,
+            'title' => $title,
+            'text'  => $text,
+        ]);
+    }
+
+    // TOASTR
+    public function showToastr($icon, $title)
+    {
+        $this->emit('swal:alert', [
+            'icon'    => $icon,
+            'title'   => $title,
+            'timeout' => 100000
+        ]);
     }
 }

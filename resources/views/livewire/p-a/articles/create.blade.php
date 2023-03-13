@@ -200,7 +200,7 @@
         <!-- Summernote CSS -->
         <link rel="stylesheet" href="{{ asset('temp/admin/v2/vendor/summernote/summernote-bs4.css') }}" />
         <!-- Select Multi -->
-        <link rel="stylesheet" href="{{ URL::asset('admin_assets/node_modules/select2/dist/css/select2.min.css') }}"
+        <link rel="stylesheet" href="{{ URL::asset('assets_admin/node_modules/select2/dist/css/select2.min.css') }}"
             rel="stylesheet">
     @endpush
 

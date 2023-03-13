@@ -116,8 +116,28 @@ class Create extends Component
             }
             $data->save();
 
-            session()->flash('success', 'Halaman berhasil ditambahkan!');
-            return redirect()->route('admin.page-index');
+            $this->showToastr('success', 'Berhasil!', 'Halaman berhasil ditambahkan.');
         }
+    }
+
+    // SWEETALERT
+    public function showAlert($icon, $title, $text)
+    {
+        $this->emit('swal:modal', [
+            'icon'  => $icon,
+            'title' => $title,
+            'text'  => $text,
+        ]);
+    }
+
+    // TOASTR
+    public function showToastr($icon, $title, $text)
+    {
+        $this->emit('swal:alert', [
+            'icon'    => $icon,
+            'title'   => $title,
+            'text'   => $text,
+            'timeout' => 10000
+        ]);
     }
 }

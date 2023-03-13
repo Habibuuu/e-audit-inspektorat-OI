@@ -2,36 +2,20 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
     <title>{{ $title . ' |' ?? '' }} {{ env('APP_NAME') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="{{ $title . ' |' ?? '' }} {{ env('APP_NAME') }}" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon-ori.png') }}">
-    <!-- Icon -->
-    <link rel="icon" sizes="192x192" href="{{ asset('images/favicon-ori.png') }}">
-    <!-- Meta Title -->
-    <meta name="title" content="{{ $title . ' |' ?? '' }} {{ env('APP_NAME') }}">
-    <!-- Meta Image -->
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
-    <!-- Meta Description -->
-    <meta name="description" content="{{ $description }}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('') }}assets_admin/images/favicon.ico">
 
-    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="{{ asset('temp/admin/v2/css/bootstrap.min.css') }}">
-
-    <!-- Animated css -->
-    <link rel="stylesheet" href="{{ asset('temp/admin/v2/css/animate.css') }}">
-
-    <!-- Bootstrap font icons css -->
-    <link rel="stylesheet" href="{{ asset('temp/admin/v2/fonts/bootstrap/bootstrap-icons.css') }}">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{ asset('temp/admin/v2/css/main.css') }}">
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- App css -->
+    <link href="{{ asset('assets_admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets_admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets_admin/css/theme.min.css') }}" rel="stylesheet" type="text/css" />
 
     @livewireStyles
     @stack('styles')
@@ -44,18 +28,32 @@
     </style>
 </head>
 
-<body class="login-container">
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center min-vh-100">
+                        <div class="w-100 d-block bg-white shadow-lg rounded my-5">
+                            {{$slot}}
+                        </div> <!-- end .w-100 -->
+                    </div> <!-- end .d-flex -->
+                </div> <!-- end col-->
+            </div> <!-- end row -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end page -->
 
-    {{ $slot }}
+    <!-- jQuery  -->
+    <script src="{{ asset('assets_admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/metismenu.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/waves.js') }}"></script>
+    <script src="{{ asset('assets_admin/js/simplebar.min.js') }}"></script>
 
-    <!-- Required jQuery first, then Bootstrap Bundle JS -->
-    <script src="{{ asset('temp/admin/v2/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('temp/admin/v2/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('temp/admin/v2/js/modernizr.js') }}"></script>
-    <script src="{{ asset('temp/admin/v2/js/moment.js') }}"></script>
-
-    <!-- Main Js Required -->
-    <script src="{{ asset('temp/admin/v2/js/main.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ asset('assets_admin/js/theme.js') }}"></script>
 
     @stack('script')
 

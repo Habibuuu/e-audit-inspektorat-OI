@@ -148,12 +148,12 @@
 
     @push('styles')
         <!-- include summernote css/js -->
-        <link rel="stylesheet" href="{{ URL::asset('plugins/summernote-angga/css/summernote.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('temp/admin/v2/vendor/summernote/summernote-bs4.css') }}" />
     @endpush
 
     @push('script')
         <!-- Summernote -->
-        <script src="{{ URL::asset('plugins/summernote-angga/js/summernote.js') }}"></script>
+        <script src="{{ asset('temp/admin/v2/vendor/summernote/summernote-bs4.js') }}"></script>
         <script src="{{ URL::asset('plugins/typeahead/typeahead.js') }}"></script>
         <script>
             $(document).ready(function() {

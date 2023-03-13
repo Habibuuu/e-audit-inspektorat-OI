@@ -16,7 +16,7 @@ use Carbon\Carbon;
                 </div>
 
                 <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" wire:click.prevent="resetInputFields()">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" wire:click.prevent="resetInputFields()">
                         <i class="fas fa-plus"></i>
                         Tambah
                 </div>
@@ -46,14 +46,14 @@ use Carbon\Carbon;
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent='changeStatus({{ $data->id }})'
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ubah Status"
+                                        data-toggle="tooltip" data-placement="bottom" title="Ubah Status"
                                         class="btn btn-rounded btn-{{ $data->status == 'Publish' ? 'success' : 'info' }} d-inline-block">
                                         {{ $data->status == 'Publish' ? 'Publish' : 'Draft' }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="d-flex gap-2 justify-content-center align-items-center">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal"
+                                        <a href="#" data-toggle="modal" data-target="#updateModal"
                                             wire:click="edit({{ $data->id }})" class="btn btn-sm btn-primary">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
@@ -79,7 +79,7 @@ use Carbon\Carbon;
                                     </td>
                                     <td>
                                         <a href="#" wire:click.prevent='changeStatus({{ $child->id }})'
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ubah Status"
+                                            data-toggle="tooltip" data-placement="bottom" title="Ubah Status"
                                             class="btn btn-rounded btn-{{ $child->status == 'Publish' ? 'success' : 'info' }} d-inline-block">
                                             {{ $child->status == 'Publish' ? 'Publish' : 'Draft' }}
                                         </a>
@@ -87,7 +87,7 @@ use Carbon\Carbon;
 
                                     <td>
                                         <div class="d-flex gap-2 justify-content-center align-items-center">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal"
+                                            <a href="#" data-toggle="modal" data-target="#updateModal"
                                                 wire:click="edit({{ $child->id }})" class="btn btn-sm btn-primary">
                                                 <i class="fa fa-edit"></i> Edit
                                             </a>
@@ -118,7 +118,7 @@ use Carbon\Carbon;
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Menu</h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true close-btn">×</span>
                     </button>
                 </div>
@@ -206,7 +206,7 @@ use Carbon\Carbon;
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-warning close-btn" data-bs-dismiss="modal"><i
+                    <button type="button" class="btn btn-warning close-btn" data-dismiss="modal"><i
                             class="fa fa-times"></i>
                         Tutup</button>
                     <button type="button" wire:click.prevent="resetInputFields()"
@@ -224,7 +224,7 @@ use Carbon\Carbon;
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Menu</h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
@@ -316,7 +316,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="modal-footer">
                     <button type="button" wire:click.prevent="cancel()" class="btn btn-warning"
-                        data-bs-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                        data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
                     <button type="button" wire:click.prevent="resetInputFields()"
                         class="btn btn-warning reset-btn"><i class="fa fa-recycle"></i> Reset</button>
                     <button type="button" wire:click.prevent="update()" class="btn btn-primary"><i

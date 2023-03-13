@@ -134,7 +134,9 @@ use Carbon\Carbon;
 
                         <h4 class="card-title">Chart Pengunjung</h4>
 
-                        <div id="pengunjung" class="morris-chart"></div>
+                        <div class="col-12" style="min-height: 400px">
+                            <div id="chartVisitor"></div>
+                        </div>
 
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
@@ -146,31 +148,83 @@ use Carbon\Carbon;
 </div>
 
 @push('script')
-<!-- Morris Custom Js-->
+    <!-- Apex Charts -->
+    <script src="{{ asset('assets_admin/vendor/apex/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets_admin/vendor/apex/custom/sales/sparkline.js') }}"></script>
     <script>
-        $(function() {
-        'use strict';
-            if ($('#pengunjung').length) {
-                Morris.Area({
-                element: 'pengunjung',
-                lineColors: ['#1d84c6'],
+        var options = {
+            chart: {
+                height: 400,
+                type: 'area',
+                toolbar: {
+                    show: false,
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 3
+            },
+            series: [{
+                name: 'Pengunjung',
                 data: [
                     @foreach ($charts as $chart)
-                    {
-                        y: '{{ $chart['date'] }}',
-                        a: {{ $chart['value'] }}
-                    },
+                        {{ $chart['value'] }},
+                    @endforeach
+                ]
+            }],
+            grid: {
+                borderColor: '#e0e6ed',
+                strokeDashArray: 5,
+                xaxis: {
+                    lines: {
+                        show: true
+                    }
+                },
+                yaxis: {
+                    lines: {
+                        show: false,
+                    }
+                },
+                padding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 10,
+                    left: 0
+                },
+            },
+            xaxis: {
+                categories: [
+                    @foreach ($charts as $chart)
+                        "{{ $chart['date'] }}",
                     @endforeach
                 ],
-                xkey: 'y',
-                ykeys: ['a'],
-                hideHover: 'auto',
-                gridLineColor: '#eef0f2',
-                resize: true,
-                labels: ['Pengunjung'],
-                parseTime: false,
-                });
-            }
-        });
+            },
+            yaxis: {
+                labels: {
+                    show: false,
+                }
+            },
+            colors: ['#435EEF'],
+            markers: {
+                size: 0,
+                opacity: 0.3,
+                colors: ['#435EEF'],
+                strokeColor: "#ffffff",
+                strokeWidth: 2,
+                hover: {
+                    size: 7,
+                }
+            },
+        }
+
+        var chart = new ApexCharts(
+            document.querySelector("#chartVisitor"),
+            options
+        );
+
+        chart.render();
     </script>
 @endpush

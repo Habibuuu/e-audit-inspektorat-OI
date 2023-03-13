@@ -42,11 +42,15 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('onlyAdmin', function (User $user) {
             // return $user->role_id == '3';
-            return in_array($user->role_id, [1, 2, 3, 4]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
 
-        Gate::define('verifikator-pers', function (User $user) {
+        Gate::define('inspektur', function (User $user) {
             return $user->role_id == '4';
+        });
+
+        Gate::define('irban', function (User $user) {
+            return $user->role_id == '5';
         });
     }
 }

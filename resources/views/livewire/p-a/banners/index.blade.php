@@ -58,16 +58,13 @@ use Carbon\Carbon;
                                     </a>
                                 </td>
                                 <td>
-                                    <div class="d-flex gap-2">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#updateModal"
-                                            wire:click="edit({{ $data->id }})" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </a>
-                                        <a href="#" wire:click="confirmDelete('{{ $data->id }}')"
-                                            class="btn btn-sm btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                            Delete
-                                        </a>
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
+                                        <button class="btn btn-outline-primary btn-rounded" data-toggle="modal"
+                                            data-target="#updateModal" wire:click="edit({{ $data->id }})"><i
+                                                class="fa fa-edit"></i> Edit</button>
+                                        <button wire:click="confirmDelete('{{ $data->id }}')"
+                                            class="btn btn-outline-danger btn-rounded"><i class="fa fa-trash"></i>
+                                            Delete</button>
                                     </div>
                                 </td>
                             </tr>

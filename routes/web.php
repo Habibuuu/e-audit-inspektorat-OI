@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\PA\AuthController;
-use App\Http\Controllers\Pub\DatabaseController;
-use App\Http\Controllers\Pub\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['visitors'])->group(function () {
@@ -52,6 +49,30 @@ Route::prefix('panel-admin')->group(function () {
     Route::middleware(['panel-admin'])->group(function () {
         // DASHBOARD
         Route::get('/', App\Http\Livewire\PA\Dashboard::class)->name('admin.dashboard');
+
+        // MASTER DATA WILAYAH
+        Route::get('/master-data/wilayah', App\Http\Livewire\PA\MasterData\Wilayah::class)->name('admin.master-data.wilayah');
+        // MASTER DATA KATEGORI
+        Route::get('/master-data/kategori', App\Http\Livewire\PA\MasterData\Kategori::class)->name('admin.master-data.kategori');
+        // MASTER DATA JENIS
+        Route::get('/master-data/jenis', App\Http\Livewire\PA\MasterData\Jenis::class)->name('admin.master-data.jenis');
+
+        // PENGADUAN
+        Route::get('/pengaduan', App\Http\Livewire\PA\Pengaduan\Index::class)->name('admin.pengaduan.index');
+        Route::get('/pengaduan/create', App\Http\Livewire\PA\Pengaduan\Create::class)->name('admin.pengaduan.create');
+        Route::get('/pengaduan/detail/{id}', App\Http\Livewire\PA\Pengaduan\Detail::class)->name('admin.pengaduan.detail');
+
+        // DISPOSISI PENGADUAN
+        Route::get('/pengaduan/disposisi', App\Http\Livewire\PA\Pengaduan\Disposisi\Index::class)->name('admin.pengaduan.disposisi.index');
+        Route::get('/pengaduan/disposisi/detail/{id}', App\Http\Livewire\PA\Pengaduan\Disposisi\Detail::class)->name('admin.pengaduan.disposisi.detail');
+
+        // DISPOSISI PENGADUAN
+        Route::get('/pengaduan/verifikasi', App\Http\Livewire\PA\Pengaduan\Verifikasi\Index::class)->name('admin.pengaduan.verifikasi.index');
+        Route::get('/pengaduan/verifikasi/detail/{id}', App\Http\Livewire\PA\Pengaduan\Verifikasi\Detail::class)->name('admin.pengaduan.verifikasi.detail');
+
+        // LIST SURAT MASUK
+        Route::get('/surat-tugas', App\Http\Livewire\PA\SuratTugas\Index::class)->name('admin.surat-tugas');
+
 
         // ARTICLES
         Route::get('/articles', App\Http\Livewire\PA\Articles\Index::class)->name('admin.articles-index');
@@ -115,12 +136,9 @@ Route::prefix('panel-admin')->group(function () {
             // USERS
             Route::get('/users', App\Http\Livewire\PA\Users\Index::class)
                 ->name('admin.users-index');
-            Route::get('/users/create', App\Http\Livewire\PA\Users\Create::class)
-                ->name('admin.users-create');
-            Route::get('/users/edit/{id}', App\Http\Livewire\PA\Users\Edit::class)
-                ->name('admin.users-edit');
-            Route::get('/me', App\Http\Livewire\PA\Users\Me::class)
-                ->name('admin.me');
+            });
         });
-    });
+
+        Route::get('/me', App\Http\Livewire\PA\Users\Me::class)
+            ->name('admin.me');
 });

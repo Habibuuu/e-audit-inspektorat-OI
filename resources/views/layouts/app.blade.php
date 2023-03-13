@@ -15,7 +15,7 @@
 
     <title>@stack('pageTitle') | {{ $identitas->name }}</title>
     <!-- fav icon -->
-    <link rel="icon" href="{{ asset('assets_public/assets/Images/fav-icon/fav-icon.png') }}">
+    <link rel="icon" href="{{ asset('images/' . $identitas->favicon) }}">
 
     <!-- bootstarp -->
     <link rel="stylesheet" href="{{ asset('assets_public/css/vendors/bootstrap.min.css') }}">

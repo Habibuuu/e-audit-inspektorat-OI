@@ -14,12 +14,11 @@ use Carbon\Carbon;
                 </h4>
                 <div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fas fa-filter"></i>
-                            Filter
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
+                            Filter <i class="fas fa-filter"></i>
                         </button>
-                        <div class="dropdown-menu dropdown-menu-end" style="min-width:350px">
+
+                        <div wire:ignore.self class="dropdown-menu dropdown-menu-lg-right" style="min-width:350px">
                             <form wire:submit.prevent="filter()" class="p-4">
                                 <div class="form-group mb-3">
                                     <label class="form-label">Judul Artikel</label>
@@ -48,6 +47,7 @@ use Carbon\Carbon;
                             </form>
                         </div>
                     </div>
+
 
                     <a href="{{ route('admin.articles-create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
@@ -104,7 +104,7 @@ use Carbon\Carbon;
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent='changeStatus({{ $data->id }})'
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ubah Status"
+                                        data-toggle="tooltip" data-placement="bottom" title="Ubah Status"
                                         class="btn btn-{{ $data->status == 'Publish' ? 'success' : 'info' }} btn-rounded">
                                         {{ $data->status == 'Publish' ? 'Publish' : 'Draft' }}
                                     </a>
@@ -115,7 +115,7 @@ use Carbon\Carbon;
                                     @endif
                                 </td>
                                 <td>
-                                    <div class="d-flex justify-content-center gap-2">
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
                                         <a class="btn btn-outline-primary btn-rounded"
                                             href="{{ route('admin.articles-edit', $data->id) }}">
                                             <i class="fa fa-edit"></i>
@@ -150,6 +150,12 @@ use Carbon\Carbon;
     </div>
 
     @push('script')
+        <script type="text/javascript">
+            $( "select" ).click(function( event ) {
+                event.stopPropagation();
+            });
+        </script>
+
         <script type="text/javascript">
             document.addEventListener('DOMContentLoaded', function() {
                 @this.on('triggerDelete', dataId => {

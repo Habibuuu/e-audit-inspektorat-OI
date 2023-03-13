@@ -7,7 +7,7 @@
                <i class="fa fa-list"></i>
                Daftar Jenis
             </h4>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"
                wire:click.prevent="cancel()">
                <i class="fas fa-plus"></i>
                Tambah Jenis
@@ -35,14 +35,14 @@
                            {{ $data->Articles->count() }}
                         </td>
                         <td>
-                           <div class="d-flex gap-2 justify-content-center">
-                              <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal"
-                                 wire:click="edit({{ $data->id }})"><i class="fa fa-edit"></i> Edit</button>
-                              <button wire:click="confirmDelete('{{ $data->id }}')" class="btn btn-sm btn-danger">
-                                 <i class="fa fa-trash"></i>
-                                 Delete
-                              </button>
-                           </div>
+                            <div class="d-flex justify-content-center" style="gap: 5px;">
+                                <button class="btn btn-outline-primary btn-rounded" data-toggle="modal"
+                                    data-target="#updateModal" wire:click="edit({{ $data->id }})"><i
+                                        class="fa fa-edit"></i> Edit</button>
+                                <button wire:click="confirmDelete('{{ $data->id }}')"
+                                    class="btn btn-outline-danger btn-rounded"><i class="fa fa-trash"></i>
+                                    Delete</button>
+                            </div>
                         </td>
                      </tr>
                   @endforeach
@@ -65,7 +65,7 @@
          <div class="modal-content">
             <div class="modal-header">
                <h5 class="modal-title">Tambah Jenis Artikel </h5>
-               <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+               <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true close-btn">×</span>
                </button>
             </div>
@@ -109,7 +109,7 @@
          <div class="modal-content">
             <div class="modal-header">
                <h5 class="modal-title">Edit Jenis Artikel</h5>
-               <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+               <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                </button>
             </div>

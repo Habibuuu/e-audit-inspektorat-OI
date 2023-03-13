@@ -12,7 +12,7 @@ use Carbon\Carbon;
                     <i class="fa fa-list"></i>
                     Download
                 </h4>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"
                     wire:click.prevent="cancel()">
                     Tambah
                 </button>
@@ -46,22 +46,19 @@ use Carbon\Carbon;
                                 </td>
                                 <td>
                                     <a href="#" wire:click.prevent='changeStatus({{ $data->id }})'
-                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ubah Status"
+                                        data-toggle="tooltip" data-placement="bottom" title="Ubah Status"
                                         class="btn btn-{{ $data->status == 'Publish' ? 'success' : 'info' }} btn-rounded">
                                         {{ $data->status == 'Publish' ? 'Publish' : 'Draft' }}
                                     </a>
                                 </td>
                                 <td>
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#addModal"
-                                            wire:click="edit({{ $data->id }})" class="btn btn-sm btn-primary">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                        <button type="button" wire:click="confirmDelete('{{ $data->id }}')"
-                                            class="btn btn-sm btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                            Delete
-                                        </button>
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
+                                        <button class="btn btn-outline-primary btn-rounded" data-toggle="modal"
+                                            data-target="#updateModal" wire:click="edit({{ $data->id }})"><i
+                                                class="fa fa-edit"></i> Edit</button>
+                                        <button wire:click="confirmDelete('{{ $data->id }}')"
+                                            class="btn btn-outline-danger btn-rounded"><i class="fa fa-trash"></i>
+                                            Delete</button>
                                     </div>
                                 </td>
                             </tr>
@@ -91,7 +88,7 @@ use Carbon\Carbon;
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">{{ $updateMode == false ? 'Tambah' : 'Edit' }} Download</h5>
-                    <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true close-btn">×</span>
                     </button>
                 </div>
@@ -145,7 +142,7 @@ use Carbon\Carbon;
                         </div>
                         <div class="col-md-12">
                             <div class="d-flex gap-2 justify-content-end">
-                                <button type="button" class="btn btn-warning close-btn" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-warning close-btn" data-dismiss="modal">
                                     <i class="fa fa-times"></i>
                                     Tutup
                                 </button>
@@ -179,5 +176,22 @@ use Carbon\Carbon;
             </div>
         </div>
     </div>
+
+    @push('style')
+    <style>
+        input[type=file]::file-selector-button {
+        margin-right: 10px;
+        border: none;
+        background: #23b5e2;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+        }
+
+        input[type=file]::file-selector-button:hover {
+        background: #73dcfb;
+        }
+    </style>
 
 </div>

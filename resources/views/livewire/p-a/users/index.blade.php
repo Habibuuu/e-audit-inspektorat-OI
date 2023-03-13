@@ -11,7 +11,7 @@
                     </h4>
                 </div>
                 <div>
-                    <button class="btn btn-primary" type="button" data-bs-target="#modalUser" data-bs-toggle="modal"
+                    <button class="btn btn-primary" type="button" data-target="#modalUser" data-toggle="modal"
                         wire:click.prevent="resetInput()">
                         <i class="fas fa-plus"></i>
                         Tambah User
@@ -50,8 +50,8 @@
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-center w-100 gap-2">
-                                        <button class="btn btn-sm btn-info" type="button" data-bs-target="#modalUser"
-                                            data-bs-toggle="modal"
+                                        <button class="btn btn-sm btn-info" type="button" data-target="#modalUser"
+                                            data-toggle="modal"
                                             wire:click.prevent="getPengguna('{{ $data->id }}')">
                                             <i class="fa fa-paste"></i>
                                             Edit
@@ -89,7 +89,7 @@
                         {{ $updateMode == false ? 'Tambah' : 'Edit' }}
                         Pengguna
                     </h5>
-                    <button class="btn" aria-label="Close" type="button" data-bs-dismiss="modal">
+                    <button class="btn" aria-label="Close" type="button" data-dismiss="modal">
                         <span aria-hidden="true">
                             <i class="fas fa-times"></i>
                         </span>
@@ -176,7 +176,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-end">
-                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">
                                 <i class="fas fa-times"></i>
                                 Tutup
                             </button>

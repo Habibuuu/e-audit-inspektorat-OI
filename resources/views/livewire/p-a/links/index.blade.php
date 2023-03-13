@@ -58,12 +58,12 @@ use Carbon\Carbon;
                                     </a>
                                 </td>
                                 <td>
-                                    <div class="d-flex gap-2">
+                                    <div class="d-flex justify-content-center" style="gap: 5px;">
                                         <button type="button" data-bs-toggle="modal" data-bs-target="#addModal"
-                                            class="btn btn-sm btn-primary" wire:click="edit({{ $dt->id }})"><i
+                                            class="btn btn-outline-primary btn-rounded" wire:click="edit({{ $dt->id }})"><i
                                                 class="fa fa-edit"></i> Edit</button>
                                         <button type="button" wire:click="confirmDelete('{{ $dt->id }}')"
-                                            class="btn btn-sm btn-danger">
+                                            class="btn btn-outline-danger btn-rounded">
                                             <i class="fa fa-trash"></i>
                                             Delete
                                         </button>
